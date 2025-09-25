@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #fce4ec, #fff);
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    header {
+      background: url('https://picsum.photos/seed/wedding/1200/600') no-repeat center/cover;
+      color: white;
+      padding: 100px 20px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      animation: fadeIn 2s ease-in-out;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      animation: slideDown 2s ease-in-out;
+    }
+    header p {
+      font-size: 1.2rem;
+      animation: slideUp 2s ease-in-out;
+    }
+    section {
+      padding: 50px 20px;
+      animation: fadeInUp 2s ease-in-out;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      animation: zoomIn 1.5s ease-in-out;
+    }
+    .names {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #c94f7c;
+      margin: 20px 0;
+    }
+    .date {
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+    .location {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #c94f7c;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+      animation: fadeIn 3s ease-in-out;
+    }
+    .button:hover {
+      background: #a83f64;
+      transform: scale(1.05);
+    }
+    .countdown {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #444;
+      margin-top: 20px;
+    }
+    /* Galeri */
+    .slideshow-container {
+      max-width: 600px;
+      position: relative;
+      margin: auto;
+    }
+    .slides {
+      display: none;
+    }
+    .slides img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    footer {
+      padding: 20px;
+      background: #c94f7c;
+      color: white;
+      animation: fadeIn 4s ease-in-out;
+    }
+    audio {
+      margin-top: 20px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Undangan Pernikahan</h1>
+    <p>Kami mengundang Anda untuk hadir di hari bahagia kami</p>
+  </header>
+
+  <section>
+    <div class="card">
+      <div class="names">Dika & Rista</div>
+      <p class="date">Minggu, 20 Oktober 2025</p>
+      <p class="location">Gedung Graha Cinta, Mojokerto</p>
+
+      <!-- Countdown -->
+      <div class="countdown" id="countdown"></div>
+
+      <a class="button" href="https://maps.google.com" target="_blank">📍 Lihat Lokasi</a>
+      <audio controls autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung audio.
+      </audio>
+    </div>
+  </section>
+
+  <!-- Galeri Foto -->
+  <section>
+    <h2>Galeri Foto</h2>
+    <div class="slideshow-container">
+      <div class="slides fade">
+        <img src="https://picsum.photos/id/1015/600/400" alt="Foto 1">
+      </div>
+      <div class="slides fade">
+        <img src="https://picsum.photos/id/1016/600/400" alt="Foto 2">
+      </div>
+      <div class="slides fade">
+        <img src="https://picsum.photos/id/1018/600/400" alt="Foto 3">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ucapan & Doa</h2>
+    <p>Silakan tinggalkan ucapan terbaik Anda untuk kami</p>
+    <a class="button" href="https://wa.me/6281234567890?text=Selamat%20atas%20pernikahannya!" target="_blank">💌 Kirim Ucapan via WhatsApp</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Dika & Rista Wedding</p>
+  </footer>
+
+  <script>
+    // Countdown Timer
+    const targetDate = new Date("Oct 20, 2025 09:00:00").getTime();
+
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "Hari Bahagia Telah Tiba 🎉";
+        clearInterval(countdown);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = 
+        `${days} Hari : ${hours} Jam : ${minutes} Menit : ${seconds} Detik`;
+    }, 1000);
+
+    // Slideshow Galeri
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      const slides = document.getElementsByClassName("slides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      slides[slideIndex-1].style.display = "block";  
+      setTimeout(showSlides, 3000); // Ganti slide tiap 3 detik
+    }
+  </script>
+</body>
+</html>
